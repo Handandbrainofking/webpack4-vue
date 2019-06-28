@@ -1,0 +1,19 @@
+{
+  "name": "webpack4-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "webpack-dev-server",
+    "build": "webpack",
+    "start": "npm run dev"
+  },
+  "dependencies": {
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "webpack": "4.26.1",
+    "webpack-cli": "^3.3.5",
+    "webpack-dev-server": "3.7.2"
+  }
+}
