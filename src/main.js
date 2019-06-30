@@ -1,4 +1,5 @@
 import Vue from 'vue'
+// import App from './App.vue'
 const say = require('./utils')
 console.log('main')
 say()
