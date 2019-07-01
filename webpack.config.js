@@ -1,7 +1,8 @@
 const path = require('path')
 const webpack = require('webpack')
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
     entry: './src/main.js',
@@ -106,6 +107,12 @@ module.exports = {
             template: './templates/404.html',//模版的来源
             title: 'Page Error 404!',
             inject: false
-        })
+        }),
+        new CopyWebpackPlugin([
+            {
+                from: path.resolve(__dirname,'src/assets'),
+                to:  path.resolve(__dirname, 'dist/assets')
+            }
+        ])
     ]
 }
