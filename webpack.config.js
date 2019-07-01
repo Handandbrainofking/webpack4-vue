@@ -1,7 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const HtmlwebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     entry: './src/main.js',
@@ -16,11 +16,14 @@ module.exports = {
         port: 9999,
         open: false,
         historyApiFallback: true,
-        overlay: true
+        overlay: true,
+        headers: {
+            'X-Custom-User': 'Nick'
+        }
     },
     resolve: {
         alias: {
-            'vue$': 'vue/dist/vue.esm.js'
+            'vue$': 'vue/dist/vue.esm.js'//compiler mode config
         }
     },
     module: {
@@ -81,13 +84,21 @@ module.exports = {
     },
     plugins: [
         new VueLoaderPlugin(),
-        new HtmlwebpackPlugin({
-            template: './index.html',
-            title: '文档：webpack 4 demo',
-            inject: 'body',
-            favicon: './favicon.ico',
+        new HtmlWebpackPlugin({
+            title: 'my webpack4',
+            template: './templates/index.html',
+            inject: 'false',
             date: new Date(),
-            userName: 'Nick'
-        })
+            userName: 'Nick',
+            favicon: './favicon.ico',
+            templateParameters: {
+                title: 'hello webpack',
+            },
+            minify: {
+                removeComments: true,//删除html模版注释
+                collapseWhitespace: true//删除空白符和换行符,生成压缩丑化的html模版
+            },
+            hash: true //添加hash到css和js文件后面，接触hash
+        }),
     ]
 }
