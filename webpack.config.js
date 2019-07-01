@@ -21,6 +21,7 @@ module.exports = {
             'X-Custom-User': 'Nick'
         }
     },
+    devtool: 'cheap-module-eval-source-map',
     resolve: {
         alias: {
             'vue$': 'vue/dist/vue.esm.js'//compiler mode config
@@ -95,10 +96,16 @@ module.exports = {
                 title: 'hello webpack',
             },
             minify: {
-                removeComments: true,//删除html模版注释
-                collapseWhitespace: true//删除空白符和换行符,生成压缩丑化的html模版
+                removeComments: false,//删除html模版注释
+                collapseWhitespace: false//删除空白符和换行符,生成压缩丑化的html模版
             },
             hash: true //添加hash到css和js文件后面，接触hash
         }),
+        new HtmlWebpackPlugin({
+            filename: 'page_404.html',//打包后的模版的名称
+            template: './templates/404.html',//模版的来源
+            title: 'Page Error 404!',
+            inject: false
+        })
     ]
 }
