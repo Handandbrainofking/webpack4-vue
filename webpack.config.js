@@ -29,6 +29,23 @@ module.exports = {
                 use: ['vue-loader']
             },
             {
+                test: /\.(png|jpe?g|gif|svg)$/,
+                use: {
+                    loader: 'url-loader',
+                    options: {
+                        name: '[name].[hash:7].[ext]',
+                        outputPath: 'img',
+                        limit: 1000,
+                    }
+                }
+            },
+            {
+                test: /\.(eot|ttf|svg)$/,
+                use: {
+                    loader: 'file-loader'
+                }
+            },
+            {
                 test: /\.css$/,
                 use: [
                     'vue-style-loader',
@@ -44,11 +61,19 @@ module.exports = {
                 ]
             },
             {
-                test: /\.sass/,
+                test: /\.sass$/,
                 use: [
                     'vue-style-loader',
                     'css-loader',
                     'sass-loader?indentedSyntax'
+                ]
+            },
+            {
+                test: /\.less$/,
+                use: [
+                    'vue-style-loader',
+                    'css-loader',
+                    'less-loader'
                 ]
             }
         ]
