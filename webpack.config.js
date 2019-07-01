@@ -1,6 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const HtmlwebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     entry: './src/main.js',
@@ -35,7 +36,7 @@ module.exports = {
                     options: {
                         name: '[name].[hash:7].[ext]',
                         outputPath: 'img',
-                        limit: 1000,
+                        limit: 10000,
                     }
                 }
             },
@@ -79,6 +80,14 @@ module.exports = {
         ]
     },
     plugins: [
-        new VueLoaderPlugin()
+        new VueLoaderPlugin(),
+        new HtmlwebpackPlugin({
+            template: './index.html',
+            title: '文档：webpack 4 demo',
+            inject: 'body',
+            favicon: './favicon.ico',
+            date: new Date(),
+            userName: 'Nick'
+        })
     ]
 }
