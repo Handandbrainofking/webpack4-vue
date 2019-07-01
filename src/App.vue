@@ -1,8 +1,11 @@
 <template>
     <div class="app">
         <nav class="app-menu">
-            <h3 class="logo-text-link"><a href="javascript: void 0">{{msg}}</a></h3>
-            <img class="logo" src="./assets/img/logo.png"/>
+            <h3 class="logo-text-link">
+                <img class="logo" src="./assets/img/logo.png"/>
+                <a href="javascript: void 0">{{msg}}</a>
+            </h3>
+            
         </nav>
         <section class="main-container">
             <home-page></home-page>
@@ -17,7 +20,7 @@ export default {
     },
     data() {
         return {
-            msg: '美居'
+            msg: 'Dolphin weex ui'
         }
     }
 }
@@ -25,18 +28,23 @@ export default {
 <style lang='less' scoped>
 @width: 60px;
 @height: @width + 5px;
-@bgColor: #99c24e;
+@bgColor: #fff;
 @logo-selector: logo;
 @text-logo: logo-text-link;
 .app {
     .app-menu {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        flex-direction: row;
+        border-bottom: 1px solid #e2e2e2;
+        margin-bottom: 15px;
+        // justify-content: center;
+        // align-items: center;
     }
     .@{text-logo} {
         font-size: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
         a {
             color: #0092d7;
         }
