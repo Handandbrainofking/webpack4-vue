@@ -24,6 +24,7 @@ module.exports = {
     },
     devtool: 'cheap-module-eval-source-map',
     resolve: {
+        extensions: ['.js', '.vue', '.json'],
         alias: {
             'vue$': 'vue/dist/vue.esm.js'//compiler mode config
         }
@@ -111,8 +112,14 @@ module.exports = {
         new CopyWebpackPlugin([
             {
                 from: path.resolve(__dirname,'src/assets'),
-                to:  path.resolve(__dirname, 'dist/assets')
+                // to:  path.resolve(__dirname, 'dist/assets/[name].[hash].[ext]'),
+                to:  path.resolve(__dirname, 'dist/assets/'),
+                ignore: ['.*']
             }
-        ])
+        ]),
+        new webpack.DefinePlugin({
+            PRODUCTION: JSON.stringify(false),
+            VERSION: JSON.stringify("5fa3b9"),
+        })
     ]
 }

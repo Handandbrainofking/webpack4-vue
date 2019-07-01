@@ -1,6 +1,11 @@
 <template>
     <div class="home-wrapper">
         <h6 class="page-title" @click="showPageTitleHandler"> {{title}} </h6>
+        <span class="blue-icon iconfont iconbluetoothoff"></span>
+        <span class="blue-icon iconfont iconsettings"></span>
+        <span class="blue-icon iconfont iconcancel"></span>
+        <span class="blue-icon iconfont iconbrightness"></span>
+        <span class="blue-icon iconfont iconmusiclist"></span>
     </div>
 </template>
 <script>
@@ -26,6 +31,9 @@ export default {
         color: #0092d7;
         font-size: 20px;
         text-align: center
+    }
+    .blue-icon {
+        font-size: 25px;
     }
 }
 </style>
