@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
-const say = require('./utils')
-console.log('main')
-say()
+console.log('Running App version ' + VERSION); 
+console.log('Is production Environment ' + PRODUCTION); 
+console.log(process.env.NODE_ENV)
 
 var app = new Vue({
     el: '#app',
